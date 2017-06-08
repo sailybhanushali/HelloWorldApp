@@ -51,12 +51,32 @@ var contactsData = {
             ]
         }
     ]
-}
+};
 
+var messageData = {
+    people: [
+        {
+            from: "SOkaznfndf",
+            time: "12:12",
+            message: "ojsafijasofjodsljf",
+            description: "ajfjlkdjflkjdfdjfl..."
+        },
+        {
+            from: "sjfkdnf",
+            time: "22:12",
+            message: "sgafdgsefjdnnvnv",
+            description: "aasrgbfflkjdfdjfl..."
+        }
+    ]
+};
 
 $$('#tab2').on('tab:show', function () {
     var personHTML = Template7.templates.personTemplate(contactsData);
 
     $$("#tab2-content").html(personHTML);
 });
+
+
+var personHTML = Template7.templates.messageTemplate(messageData);
+$$("#tab1-content").html(personHTML);
 

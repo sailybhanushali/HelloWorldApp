@@ -44,7 +44,7 @@
                                 <!-- First tab is active by default - additional "active" class -->
                                 <div class="tab active" id="tab1">
                                     <div class="myapp-heading" >HiApp</div>
-                                    ... Tab 1 content goes here ...
+                                    <div id="tab1-content"></div>
                                     </div>
                                 <!-- Second tab, should have "tab" class and unique id attribute -->
                                 <div class="tab" id="tab2">
@@ -103,6 +103,29 @@
                 </ul>
             </div>
             {{/each}}
+        </script>
+
+        <script type="text/template7" id="messageTemplate">
+          
+            
+            <div class="list-block media-list">
+                <ul>
+                    {{#each people}}
+                    <li>
+                        <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">{{from}}</div>
+                                    <div class="item-after">{{time}}</div>
+                                </div>
+                                <div class="item-subtitle">{{message}}</div>
+                                <div class="item-text">{{description}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </script>
 
         <script type="text/javascript" src="cordova.js"></script>
