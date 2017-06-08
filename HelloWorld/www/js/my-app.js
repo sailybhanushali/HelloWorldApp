@@ -1,6 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
     precompileTemplates: true,
+    template7Pages: true ,
     pushState: true,
     material: true});
 
