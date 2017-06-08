@@ -84,6 +84,7 @@
         </div>
 
         <script type="text/template7" id="personTemplate">
+            {{#each groups}}
             <div class="content-block-title">{{group}}</div>
             <div class="list-block media-list">
                 <ul>
@@ -101,6 +102,7 @@
                     {{/each}}
                 </ul>
             </div>
+            {{/each}}
         </script>
 
         <script type="text/javascript" src="cordova.js"></script>

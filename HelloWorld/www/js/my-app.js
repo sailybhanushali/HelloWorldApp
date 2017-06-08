@@ -13,25 +13,49 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
-
+var contactsData = {
+    groups: [
+        {
+            group: "A",
+            people: [
+                {
+                    firstName: 'Adam',
+                    lastName: 'Doe',
+                    img: 'http://lorempixel.com/200/200/'
+                },
+                {
+                    firstName: 'Alan',
+                    lastName: 'Johnson',
+                    img: 'http://lorempixel.com/200/200/'
+                }
+            ]
+        },
+        {
+            group: "B",
+            people: [
+                {
+                    firstName: 'Bob',
+                    lastName: 'Doe',
+                    img: 'http://lorempixel.com/200/200/'
+                },
+                {
+                    firstName: 'Bean',
+                    lastName: 'Doe',
+                    img: 'http://lorempixel.com/200/200/'
+                },
+                {
+                    firstName: 'Buzz',
+                    lastName: 'Johnson',
+                    img: 'http://lorempixel.com/200/200/'
+                }
+            ]
+        }
+    ]
+}
 
 
 $$('#tab2').on('tab:show', function () {
-    var personHTML = Template7.templates.personTemplate({
-        group:"A",
-        people: [
-            {
-                firstName: 'John',
-                lastName: 'Doe',
-                img: 'http://lorempixel.com/200/200/'
-            },
-            {
-                firstName: 'Mark',
-                lastName: 'Johnson',
-                img: 'http://lorempixel.com/200/200/'
-            }
-        ]
-    });
+    var personHTML = Template7.templates.personTemplate(contactsData);
 
     $$("#tab2-content").html(personHTML);
 });
