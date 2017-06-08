@@ -18,9 +18,10 @@
         <link rel="stylesheet" href="css/framework7.material.colors.min.css">
         <!-- Path to your custom app styles-->
         <link rel="stylesheet" href="css/my-app.css">
+        <link href="iconfont/material-icons.css" rel="stylesheet" />
         <title>HelloWorld</title>
     </head>
-    <body>
+    <body class="theme-orange" >
         
 
         <!-- Views -->
@@ -30,28 +31,54 @@
                
 
                 <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
-                <div class="pages navbar-fixed toolbar-fixed">
-                    <!-- Page, "data-page" contains page name -->
-                    <div data-page="index" class="page">
+                <div class="pages toolbar-fixed navbar-fixed">
 
-                        <!-- Top Navbar. In Material theme it should be inside of the page-->
-                        <div class="navbar">
-                            <div class="navbar-inner">
-                                <div class="center">Awesome App</div>
-                            </div>
-                        </div>                       
+                    <!-- Top Navbar-->
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="center">Awesome App</div>
+                        </div>
+                    </div>
+
+                    <!-- Page, "data-page" contains page name -->
+                    <div data-page="index" class="page">                              
 
                         <!-- Scrollable page content -->
                         <div class="page-content">
-                            <h1> My Home</h1>
+                            <div class="tabs">
+                                
+                                <!-- First tab, should have "tab" class and unique id attribute -->
+                                <!-- First tab is active by default - additional "active" class -->
+                                <div class="tab active" id="tab1">
+                                    
+                                    ... Tab 1 content goes here ...
+                                </div>
+                                <!-- Second tab, should have "tab" class and unique id attribute -->
+                                <div class="tab" id="tab2">
+                                    ... Tab 2 content goes here ...
+                                </div>
+                                <!-- Third tab, should have "tab" class and unique id attribute -->
+                                <div class="tab" id="tab3">
+                                    ... Tab 3 content goes here ...
+                                </div>
+                            </div>  
                         </div>
 
                         <!-- Toolbar. In Material theme it should be inside of the page-->
-                        <div class="toolbar toolbar-bottom">
+                        <div class="toolbar toolbar-bottom tabbar tabbar-labels">
                             <div class="toolbar-inner">
-                                <!-- Toolbar links -->
-                                <a href="#index" data-view=".home-view" class="link">Home</a>
-                                <a href="about.html" class="link">About</a>
+                                <a href="#tab1" class="tab-link active">
+                                    <i class="material-icons">home</i>
+                                    <span class="tabbar-label">Home</span>
+                                </a>
+                                <a href="#tab2" class="tab-link">
+                                    <i class="material-icons">contacts</i>
+                                    <span class="tabbar-label">Contacts</span>
+                                </a>
+                                <a href="#tab3" class="tab-link">
+                                    <i class="material-icons">settings</i>
+                                    <span class="tabbar-label">Settings</span>
+                                </a>
                             </div>
                         </div>
 
