@@ -1,18 +1,24 @@
 ﻿
-            <div class="page">
+            <div class="page no-tabbar navbar-fixed"  data-page="message">
                 <!-- Top Navbar. In Material theme it should be inside of the page-->
                 <div class="navbar">
                     <div class="navbar-inner">
                         <div class="left">
                             <a href="#" class="link back">
                                 <i class="material-icons">keyboard_arrow_left</i>
-                                <span>Back</span>
                             </a>
                         </div>
                         <div class="center text-transform-none">Messages</div>
                         <div class="right"></div>
                     </div>
                 </div>
+
+                <div class="toolbar messagebar messagebar-init" data-max-height="200">
+                    <div class="toolbar-inner">
+                        <textarea placeholder="Message"></textarea><a href="#" class="link">Send</a>
+                    </div>
+                </div> 
+
                 <div class="page-content messages-content">
                     <div class="messages">
                         <div class="messages-date">Sunday, Feb 9 <span>12:58</span></div>

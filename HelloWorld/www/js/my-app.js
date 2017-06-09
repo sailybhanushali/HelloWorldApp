@@ -14,6 +14,20 @@ var mainView = myApp.addView('.view-main');
 var view2 = myApp.addView('#view2');
 var view3 = myApp.addView('#view3');
 
+$$(document).on('page:init', function (e) {
+    // Page Data contains all required information about loaded and initialized page 
+    var page = e.detail.page;
+    if (page.name == "message") {
+        var myMessages = myApp.messages($$(page.container).find('.messages'), {
+            autoLayout: true
+        });
+
+        console.log("message initialized!")
+    }
+});
+
+
+
 var contactsData = {
     groups: [
         {
@@ -54,6 +68,16 @@ var contactsData = {
     ]
 };
 
+
+for (var i = 1; i <= 60; i++)
+{
+    contactsData.groups[1].people.push({
+        firstName: 'Bob',
+        lastName: 'Doe' + i,
+        img: 'http://lorempixel.com/200/200/'
+    });
+}
+
 var messageData = {
     people: [
         {
@@ -70,6 +94,15 @@ var messageData = {
         }
     ]
 };
+
+for (var i = 1; i <= 60; i++) {
+    messageData.people.push({
+        from: "From"+i,
+        time: "12:12",
+        message: "Message here",
+        description: "Description here"
+    })
+}
 
 $$('#view2').on('tab:show', function () {
     var personHTML = Template7.templates.personTemplate(contactsData);
@@ -97,7 +130,7 @@ var onWeatherSuccess = function (position) {
     Longitude = position.coords.longitude;
 
     getWeather(Latitude, Longitude);
-}
+};
 
 // Get weather by using coordinates
 
@@ -124,8 +157,6 @@ function getWeather(latitude, longitude) {
 
             });
         }
-    }).fail(function () {
-        console.log("error getting location");
     });
 }
 

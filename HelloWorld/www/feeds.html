@@ -5,7 +5,6 @@
             <div class="left">
                 <a href="#" class="link back">
                     <i class="material-icons">keyboard_arrow_left</i>
-                    <span>Back</span>
                 </a>
             </div>
             <div class="center text-transform-none">Feed</div>
@@ -14,9 +13,23 @@
     </div>
     
     <div class="page-content">
-        <p>{{url_query.f}}</p>
-        <p>{{url_query.t}}</p>
-        <p>{{url_query.m}}</p>
-        <p>{{url_query.d}}</p>
+        <div class="list-block cards-list">
+            <ul>
+                <li class="card">
+                    <div class="card-header">
+                        <p>{{url_query.f}}</p>
+                        <p>{{url_query.t}}</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-inner">
+                             <p>{{url_query.m}}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p>{{url_query.d}}</p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
