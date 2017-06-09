@@ -119,7 +119,7 @@ function getWeather(latitude, longitude) {
                 if (results.weather.length) {
 
                     $$('#location').text(results.name);
-          
+                    $$('#city').text(results.name);
                 }
 
             });
