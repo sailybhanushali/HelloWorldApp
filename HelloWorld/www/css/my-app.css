@@ -1,3 +1,12 @@
 .text-transform-none {
     text-transform: none;
 }
+
+.image-grid {
+    padding: 0px;
+    border: 2px solid white;
+    overflow: hidden;
+    width:100px;
+    height:100px;
+    background-size:cover;
+}

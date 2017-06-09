@@ -23,7 +23,7 @@
         <!-- Left Panel with Reveal effect -->
         <div class="panel panel-left panel-reveal">
             <div class="content-block">
-                <p>Left Panel content here</p>
+                <a href="gallery.html" class="close-panel" >Gallery</a>
                 <!-- Click on link with "close-panel" class will close panel -->
                 <p><a href="#" class="close-panel">Close me</a></p>
                 <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
@@ -60,7 +60,7 @@
 
                         <!-- Scrollable page content -->
                         <div class="page-content" id="index">
-                            index
+                           
                         </div>
 
                     </div>
@@ -86,7 +86,7 @@
 
                             <!-- Scrollable page content -->
                             <div class="page-content" id="contacts">
-                                contacts
+                                
                             </div>
 
                         </div>
@@ -245,6 +245,17 @@
                     {{/each}}
                 </ul>
             </div>
+        </script>
+
+        <script type="text/template7" id="galleryTemplate">
+            <div class="content-block">
+                <div class="row no-gutter">
+                    {{#each photos}}
+                    <!-- Each "cell" has col-[widht in percents] class -->
+                    <div class="col-auto bg-black image-grid" data-index="{{@index}}" style="background-image:url({{url}})"></div>
+                    {{/each}}
+                </div>
+             </div>
         </script>
 
         <script type="text/javascript" src="cordova.js"></script>

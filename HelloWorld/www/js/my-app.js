@@ -21,10 +21,59 @@ $$(document).on('page:init', function (e) {
         var myMessages = myApp.messages($$(page.container).find('.messages'), {
             autoLayout: true
         });
+    }
 
-        console.log("message initialized!")
+    else if (page.name == "gallery") {
+       
+
+        var galleryData = {
+            photos: [
+                {
+                    url: 'http://lorempixel.com/1024/1024/sports/1/',
+                    caption: 'Caption 1 Text'
+                },
+                {
+                    url: 'http://lorempixel.com/1024/1024/sports/2/',
+                    caption: 'Second Caption Text'
+                },
+                // This one without caption
+                {
+                    url: 'http://lorempixel.com/1024/1024/sports/3/',
+                },
+                {
+                    url: 'http://lorempixel.com/1024/1024/sports/1/',
+                    caption: 'Caption 1 Text'
+                },
+                {
+                    url: 'http://lorempixel.com/200/1024/sports/2/',
+                    caption: 'Second Caption Text'
+                },
+                // This one without caption
+                {
+                    url: 'http://lorempixel.com/1024/224/sports/3/',
+                },
+            ],
+            theme: 'dark',
+            type: 'standalone'
+        };
+
+        console.log("gallery is to be initialized!");
+
+        var personHTML = Template7.templates.galleryTemplate(galleryData);
+        $$(page.container).find('#gallery').html(personHTML);
+
+        
+        var myPhotoBrowserPopupDark = myApp.photoBrowser(galleryData);
+        $$($$(page.container).find('.image-grid')).on('click', function () {
+            myPhotoBrowserPopupDark.open($$(this).attr("data-index"));
+        });
+        //end
+        console.log("gallery is initialized!");
     }
 });
+
+
+
 
 
 
