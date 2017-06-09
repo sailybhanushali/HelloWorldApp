@@ -9,10 +9,10 @@ var myApp = new Framework7({
 var $$ = Dom7;
 
 // Add view
-var mainView = myApp.addView('.view-main', {
-    // Because we use fixed-through navbar we can enable dynamic navbar
-    dynamicNavbar: true
-});
+var mainView = myApp.addView('.view-main');
+
+var view2 = myApp.addView('#view2');
+var view3 = myApp.addView('#view3');
 
 var contactsData = {
     groups: [
@@ -57,27 +57,84 @@ var contactsData = {
 var messageData = {
     people: [
         {
-            from: "SOkaznfndf",
+            from: "From1",
             time: "12:12",
-            message: "ojsafijasofjodsljf",
-            description: "ajfjlkdjflkjdfdjfl..."
+            message: "Message here",
+            description: "Description here"
         },
         {
-            from: "sjfkdnf",
-            time: "22:12",
-            message: "sgafdgsefjdnnvnv",
-            description: "aasrgbfflkjdfdjfl..."
+            from: "From2",
+            time: "11:11",
+            message: "Message here",
+            description: "Description here"
         }
     ]
 };
 
-$$('#tab2').on('tab:show', function () {
+$$('#view2').on('tab:show', function () {
     var personHTML = Template7.templates.personTemplate(contactsData);
 
-    $$("#tab2-content").html(personHTML);
+    $$("#contacts").html(personHTML);
 });
 
 
 var personHTML = Template7.templates.messageTemplate(messageData);
-$$("#tab1-content").html(personHTML);
+$$("#index").html(personHTML);
 
+
+//Location access
+function getWeatherLocation() {
+
+    navigator.geolocation.getCurrentPosition
+        (onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });
+}
+
+// Success callback for get geo coordinates
+
+var onWeatherSuccess = function (position) {
+
+    Latitude = position.coords.latitude;
+    Longitude = position.coords.longitude;
+
+    getWeather(Latitude, Longitude);
+}
+
+// Get weather by using coordinates
+
+function getWeather(latitude, longitude) {
+
+    // Get a free key at http://openweathermap.org/. Replace the "Your_Key_Here" string with that key.
+    var OpenWeatherAppKey = "89160a32178326b0809926e1b8d0b1ee";
+
+    var queryString =
+        'http://api.openweathermap.org/data/2.5/weather?lat='
+        + latitude + '&lon=' + longitude + '&appid=' + OpenWeatherAppKey + '&units=imperial';
+
+    $$.getJSON(queryString, function (results) {
+
+        if (results.weather.length) {
+
+            $$.getJSON(queryString, function (results) {
+
+                if (results.weather.length) {
+
+                    $$('#location').text(results.name);
+          
+                }
+
+            });
+        }
+    }).fail(function () {
+        console.log("error getting location");
+    });
+}
+
+// Error callback
+
+function onWeatherError(error) {
+    console.log('code: ' + error.code + '\n' +
+        'message: ' + error.message + '\n');
+}
+
+
+getWeatherLocation();

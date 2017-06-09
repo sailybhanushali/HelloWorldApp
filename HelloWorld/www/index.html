@@ -1,18 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *">
-        
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <!-- Path to Framework7 Library CSS-->
         <link rel="stylesheet" href="css/framework7.material.min.css">
         <link rel="stylesheet" href="css/framework7.material.colors.min.css">
@@ -23,54 +15,121 @@
     </head>
     <body class="theme-orange" >
         
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+      
+        <!-- Left Panel with Reveal effect -->
+        <div class="panel panel-left panel-reveal">
+            <div class="content-block">
+                <p>Left Panel content here</p>
+                <!-- Click on link with "close-panel" class will close panel -->
+                <p><a href="#" class="close-panel">Close me</a></p>
+                <!-- Click on link with "open-panel" and data-panel="right" attribute will open Right panel -->
+               
+            </div>
+        </div>
 
         <!-- Views -->
-        <div class="views">
-            <!-- Your main view, should have "view-main" class -->
-            <div class="view view-main home-view">
-               
-
+        <div class="views tabs toolbar-through" id="views1">
+            
+                <div class="view view-main tab active" id="view1" >
                 <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
-                <div class="pages toolbar-fixed">                  
+                <div class="pages navbar-fixed">                 
 
                     <!-- Page, "data-page" contains page name -->
-                    <div data-page="index" class="page">                              
+                    <div data-page="index" class="page" >
+                        
+                        <!-- Top Navbar. In Material theme it should be inside of the page-->
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="left">
+                                    <a href="#" class="link open-panel">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                </div>
+                                <div class="center text-transform-none">HiApp</div>
+                                <div class="right" id="location"></div>
+                            </div>
+                        </div>
 
                         <!-- Scrollable page content -->
-                        <div class="page-content">
-                            <div class="tabs">
-                                
-                                <!-- First tab, should have "tab" class and unique id attribute -->
-                                <!-- First tab is active by default - additional "active" class -->
-                                <div class="tab active" id="tab1">
-                                    <div class="myapp-heading" >HiApp</div>
-                                    <div id="tab1-content"></div>
-                                    </div>
-                                <!-- Second tab, should have "tab" class and unique id attribute -->
-                                <div class="tab" id="tab2">
-                                    <div class="myapp-heading">Contacts</div>
-                                    <div id="tab2-content" ></div>
-                                </div>
-                                <!-- Third tab, should have "tab" class and unique id attribute -->
-                                <div class="tab" id="tab3">
-                                    <div class="myapp-heading">Settings</div>
-                                    ... Tab 3 content goes here ...
-                                </div>
-                            </div>  
+                        <div class="page-content" id="index">
+                            index
                         </div>
+
+                    </div>
+                  </div>
+                 </div>
+
+                   
+                <div class="view tab" id="view2">
+                    <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+                    <div class="pages navbar-fixed">
+
+                        <!-- Page, "data-page" contains page name -->
+                        <div data-page="contacts" class="page" >
+
+                            <!-- Top Navbar. In Material theme it should be inside of the page-->
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <div class="left"></div>
+                                    <div class="center text-transform-none">Contacts</div>
+                                    <div class="right"></div>
+                                </div>
+                            </div>
+
+                            <!-- Scrollable page content -->
+                            <div class="page-content" id="contacts">
+                                contacts
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="view tab" id="view3">
+                    <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+                    <div class="pages navbar-fixed">
+
+                        <!-- Page, "data-page" contains page name -->
+                        <div data-page="settings" class="page no-toolbar no-tabbar" >
+
+                            <!-- Top Navbar. In Material theme it should be inside of the page-->
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <div class="left"></div>
+                                    <div class="center text-transform-none">Settings</div>
+                                    <div class="right"></div>
+                                </div>
+                            </div>
+
+                            <!-- Scrollable page content -->
+                            <div class="page-content" id="settings">
+                                settings
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                        
 
                         <!-- Toolbar. In Material theme it should be inside of the page-->
                         <div class="toolbar toolbar-bottom tabbar tabbar-labels">
                             <div class="toolbar-inner">
-                                <a href="#tab1" class="tab-link active">
+                                <a href="#view1" class="tab-link active">
                                     <i class="material-icons">home</i>
                                     <span class="tabbar-label">Home</span>
                                 </a>
-                                <a href="#tab2" class="tab-link">
+                                <a href="#view2" class="tab-link">
                                     <i class="material-icons">contacts</i>
                                     <span class="tabbar-label">Contacts</span>
                                 </a>
-                                <a href="#tab3" class="tab-link">
+                                <a href="#view3" class="tab-link">
                                     <i class="material-icons">settings</i>
                                     <span class="tabbar-label">Settings</span>
                                 </a>
@@ -78,10 +137,9 @@
                         </div>
 
 
-                    </div>
+                    
                 </div>
-            </div>
-        </div>
+        
 
         <script type="text/template7" id="personTemplate">
             {{#each groups}}
@@ -112,7 +170,7 @@
                 <ul>
                     {{#each people}}
                     <li>
-                        <a href="#" class="item-link item-content">
+                        <a href="feeds.html?f={{from}}&t={{time}}&m={{message}}&d={{description}}" class="item-link item-content">
                             <div class="item-inner">
                                 <div class="item-title-row">
                                     <div class="item-title">{{from}}</div>
@@ -130,7 +188,6 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
         <!-- Path to Framework7 Library JS-->
         <script type="text/javascript" src="js/framework7.min.js"></script>
         <!-- Path to your app js-->
